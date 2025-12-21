@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Performance Predictor</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero {
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #f1f1f1;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 14px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #eaeaea;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #667eea;
+            background: white;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #ddd;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>Student Performance Predictor</h1>
+    <p>
+        A Machine Learning based web application that predicts a student's
+        <strong>Maths score</strong> using academic and demographic factors.
+    </p>
+
+    <div class="features">
+        <div class="feature-card">
+            <h3>📊 ML Powered</h3>
+            <p>Uses trained machine learning models for accurate predictions.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>🎓 Academic Insights</h3>
+            <p>Considers reading, writing scores and background details.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>⚡ Fast & Simple</h3>
+            <p>Instant predictions with a clean and easy-to-use interface.</p>
+        </div>
+    </div>
+
+    <a href="{{ url_for('predict_datapoints') }}" class="btn">Start Prediction</a>
+
+
+    <footer>
+        © 2025 | Student Exam Performance Indicator
+    </footer>
+</div>
+
+</body>
+</html>
