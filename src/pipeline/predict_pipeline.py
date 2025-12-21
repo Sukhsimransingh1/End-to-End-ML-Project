@@ -8,20 +8,32 @@ class PredictPipeline:
     def __init__(self):
         pass
 
-    def predict(self,features):
+    def predict(self, features):
         try:
-            model_path=os.path.join("artifacts","model.pkl")
-            preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
+            BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+            model_path = os.path.join(BASE_DIR, "artifacts", "model.pkl")
+            preprocessor_path = os.path.join(BASE_DIR, "artifacts", "preprocessor.pkl")
+
+            print("Model path:", model_path)
+            print("Preprocessor path:", preprocessor_path)
             print("Before Loading")
-            model=load_object(file_path=model_path)
-            preprocessor=load_object(file_path=preprocessor_path)
+
+            model = load_object(file_path=model_path)
+            preprocessor = load_object(file_path=preprocessor_path)
+
             print("After Loading")
-            data_scaled=preprocessor.transform(features)
-            preds=model.predict(data_scaled)
+
+            data_scaled = preprocessor.transform(features)
+            preds = model.predict(data_scaled)
+
             return preds
-        
+
         except Exception as e:
-            raise CustomException(e,sys)
+            print("❌ PREDICT PIPELINE ERROR ❌")
+            print(e)
+            raise CustomException(e, sys)
+
 
 
 
