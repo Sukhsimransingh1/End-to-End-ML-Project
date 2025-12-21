@@ -21,5 +21,4 @@ author='Sukhsimran Singh',
 author_email='sukhsimransingh304@gmail.com',
 packages=find_packages(),
 install_requires=get_requirements('requirements.txt')
-
 )
